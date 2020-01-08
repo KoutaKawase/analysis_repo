@@ -4,9 +4,9 @@ import { SearchButton } from './SearchButton';
 
 export const SearchContainer: React.FC = () => {
   return (
-    <div>
+    <form>
       <SearchInput />
       <SearchButton />
-    </div>
+    </form>
   );
 };
