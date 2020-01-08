@@ -1,24 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { SearchInput } from './SearchInput';
 import { SearchButton } from './SearchButton';
 
-export const SearchContainer: React.FC = () => {
-  const [inputValue, setInputValue] = useState('');
+interface Props {
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  inputValue: string;
+}
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
-    e.preventDefault();
-    console.log('clicked!');
+export const SearchContainer: React.FC<Props> = (props: Props) => {
+  const onClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
+    props.onClick(e);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setInputValue(e.target.value);
-    console.log(inputValue);
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    props.onChange(e);
   };
 
   return (
     <form>
-      <SearchInput value={inputValue} onChange={handleChange} />
-      <SearchButton onClick={handleClick} />
+      <SearchInput value={props.inputValue} onChange={onChange} />
+      <SearchButton onClick={onClick} />
     </form>
   );
 };
