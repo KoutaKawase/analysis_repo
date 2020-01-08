@@ -10,9 +10,14 @@ export const SearchContainer: React.FC = () => {
     console.log('clicked!');
   };
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setInputValue(e.target.value);
+    console.log(inputValue);
+  };
+
   return (
     <form>
-      <SearchInput />
+      <SearchInput value={inputValue} onChange={handleChange} />
       <SearchButton onClick={handleClick} />
     </form>
   );
