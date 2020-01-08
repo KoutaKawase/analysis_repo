@@ -11,3 +11,6 @@ CSS
 ・ユーザーのアイコンと名前が表示される
 
 ぐらいかな　とりあえず最低限を実装
+
+https://api.github.com/users/KoutaKawase/repos
+https://api.github.com/users/KoutaKawase/
