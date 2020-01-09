@@ -18,7 +18,7 @@ const makeLanguagesArrayFromJson = (json: any): string[] => {
 
   return usedLanguages;
 };
-
+//TODO: なんかdataって名前が曖昧すぎてもう少しわかりやすくする
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const useFetch = (url: string): any => {
   const [data, updateData] = useState(undefined);
@@ -56,10 +56,7 @@ export const App: React.FC = () => {
     <div>
       <h1>Hello World</h1>
       <SearchContainer onClick={handleClick} onChange={handleChange} inputValue={inputValue} />
-      <UserInfoContainer />
-      {usedLanguages.map((lang: string, index) => {
-        return <p key={index}>{lang}</p>;
-      })}
+      <UserInfoContainer languages={usedLanguages} />
     </div>
   );
 };

@@ -13,4 +13,17 @@ CSS
 ぐらいかな　とりあえず最低限を実装
 
 https://api.github.com/users/KoutaKawase/repos
-https://api.github.com/users/KoutaKawase/
+
+```tsx
+const uniqueUseRate: UseRate[] = useRate.filter((data1, index, self) => {
+  console.log(`data1: ${data1.language}`);
+  return (
+    self.findIndex(data2 => {
+      console.log(`data2: ${data2.language}`);
+      return data1.language === data2.language;
+    }) === index
+  );
+});
+```
+
+これマジで理解できん　コピペで済ましたくないので理解したい

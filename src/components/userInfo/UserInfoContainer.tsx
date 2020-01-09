@@ -2,10 +2,14 @@ import React from 'react';
 import { UserInfo } from './UserInfo';
 import { ChartArea } from './ChartArea';
 
-export const UserInfoContainer: React.FC = () => {
+interface Props {
+  languages: string[];
+}
+
+export const UserInfoContainer: React.FC<Props> = (props: Props) => {
   return (
     <div>
-      <ChartArea />
+      <ChartArea languages={props.languages} />
       <UserInfo />
     </div>
   );
