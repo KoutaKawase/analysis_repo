@@ -36,7 +36,7 @@ const useFetch = (url: string): any => {
 };
 
 export const App: React.FC = () => {
-  const [inputValue, setInputValue] = useState('');
+  const [userID, setInputValue] = useState('');
 
   const URL = `https://api.github.com/users/matz/repos`;
   const resultJson = useFetch(URL);
@@ -49,13 +49,12 @@ export const App: React.FC = () => {
 
   const handleChange = (e: ChangeEvent): void => {
     setInputValue(e.target.value);
-    console.log(inputValue);
+    console.log(userID);
   };
-  //TODO: keyにindexはクソなので修正
   return (
     <div>
       <h1>Hello World</h1>
-      <SearchContainer onClick={handleClick} onChange={handleChange} inputValue={inputValue} />
+      <SearchContainer onClick={handleClick} onChange={handleChange} inputValue={userID} />
       <UserInfoContainer languages={usedLanguages} />
     </div>
   );
