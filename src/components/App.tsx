@@ -44,13 +44,15 @@ export const App: React.FC = () => {
 
   const handleClick = (e: ClickEvent): void => {
     e.preventDefault();
-    console.log('Click!');
+    const URL = `https://api.github.com/users/${userID}/repos`;
+    console.log(URL);
   };
 
   const handleChange = (e: ChangeEvent): void => {
     setInputValue(e.target.value);
-    console.log(userID);
+    return;
   };
+
   return (
     <div>
       <h1>Hello World</h1>
