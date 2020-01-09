@@ -9,12 +9,21 @@ type ChangeEvent = React.ChangeEvent<HTMLInputElement>;
 const makeLanguagesArrayFromJson = (json: any): string[] => {
   const usedLanguages: string[] = [];
 
+  //Effect前にも呼ばれる　その時jsonがundefinedなので消すとエラーに鳴る
   if (!json) {
     return [];
   }
+
+  //無効なユーザーIDなら空配列を返すだけにしてエラーが出ないようにする
+  if ('message' in json && json.message === 'Not Found') {
+    return ['Not Found'];
+  }
+
   for (const repo of json) {
     usedLanguages.push(repo.language);
   }
+
+  console.log(usedLanguages);
 
   return usedLanguages;
 };
@@ -41,12 +50,12 @@ export const App: React.FC = () => {
 
   const resultJson = useFetch(requestURL);
   const usedLanguages = makeLanguagesArrayFromJson(resultJson);
+  console.log(usedLanguages);
 
   const handleClick = (e: ClickEvent): void => {
     e.preventDefault();
     const URL = `https://api.github.com/users/${userID}/repos`;
     setRequestURL(URL);
-    console.log(URL);
   };
 
   const handleChange = (e: ChangeEvent): void => {
