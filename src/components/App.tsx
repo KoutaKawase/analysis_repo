@@ -16,7 +16,7 @@ const makeLanguagesArrayFromJson = (json: any): string[] => {
 
   //無効なユーザーIDなら空配列を返すだけにしてエラーが出ないようにする
   if ('message' in json && json.message === 'Not Found') {
-    return ['Not Found'];
+    return [];
   }
 
   for (const repo of json) {
@@ -46,16 +46,16 @@ const useFetch = (url: string): any => {
 
 export const App: React.FC = () => {
   const [userID, setInputValue] = useState('');
-  const [requestURL, setRequestURL] = useState('https://api.github.com/users/matz/repos');
+  const [requestReposURL, setRequestReposURL] = useState('https://api.github.com/users/matz/repos');
 
-  const resultJson = useFetch(requestURL);
+  const resultJson = useFetch(requestReposURL);
   const usedLanguages = makeLanguagesArrayFromJson(resultJson);
   console.log(usedLanguages);
 
   const handleClick = (e: ClickEvent): void => {
     e.preventDefault();
     const URL = `https://api.github.com/users/${userID}/repos`;
-    setRequestURL(URL);
+    setRequestReposURL(URL);
   };
 
   const handleChange = (e: ChangeEvent): void => {
