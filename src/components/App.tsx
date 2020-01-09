@@ -9,12 +9,21 @@ type ChangeEvent = React.ChangeEvent<HTMLInputElement>;
 const makeLanguagesArrayFromJson = (json: any): string[] => {
   const usedLanguages: string[] = [];
 
+  //Effect前にも呼ばれる　その時jsonがundefinedなので消すとエラーに鳴る
   if (!json) {
     return [];
   }
+
+  //無効なユーザーIDなら空配列を返すだけにしてエラーが出ないようにする
+  if ('message' in json && json.message === 'Not Found') {
+    return ['Not Found'];
+  }
+
   for (const repo of json) {
     usedLanguages.push(repo.language);
   }
+
+  console.log(usedLanguages);
 
   return usedLanguages;
 };
@@ -36,26 +45,28 @@ const useFetch = (url: string): any => {
 };
 
 export const App: React.FC = () => {
-  const [inputValue, setInputValue] = useState('');
+  const [userID, setInputValue] = useState('');
+  const [requestURL, setRequestURL] = useState('https://api.github.com/users/matz/repos');
 
-  const URL = `https://api.github.com/users/matz/repos`;
-  const resultJson = useFetch(URL);
+  const resultJson = useFetch(requestURL);
   const usedLanguages = makeLanguagesArrayFromJson(resultJson);
+  console.log(usedLanguages);
 
   const handleClick = (e: ClickEvent): void => {
     e.preventDefault();
-    console.log('Click!');
+    const URL = `https://api.github.com/users/${userID}/repos`;
+    setRequestURL(URL);
   };
 
   const handleChange = (e: ChangeEvent): void => {
     setInputValue(e.target.value);
-    console.log(inputValue);
+    return;
   };
-  //TODO: keyにindexはクソなので修正
+
   return (
     <div>
       <h1>Hello World</h1>
-      <SearchContainer onClick={handleClick} onChange={handleChange} inputValue={inputValue} />
+      <SearchContainer onClick={handleClick} onChange={handleChange} inputValue={userID} />
       <UserInfoContainer languages={usedLanguages} />
     </div>
   );
