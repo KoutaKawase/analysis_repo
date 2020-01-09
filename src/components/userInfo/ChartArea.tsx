@@ -2,12 +2,16 @@ import React from 'react';
 import { Chart } from './Chart';
 import { AnalyzedMessage } from './AnalyzedMessage';
 
-export const ChartArea: React.FC = () => {
+interface Props {
+  languages: string[];
+}
+
+export const ChartArea: React.FC<Props> = (props: Props) => {
   return (
     <div>
       {'This is chartarea'}
       <Chart />
-      <AnalyzedMessage />
+      <AnalyzedMessage languages={props.languages} />
     </div>
   );
 };
