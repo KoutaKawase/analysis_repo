@@ -21,7 +21,7 @@ const calculateLanguageUseRate = (langs: string[]): UseRate[] => {
     useRate.push({
       id: uuid.v4(),
       language: lang,
-      rate: Math.round(rate),
+      rate: Math.floor(rate * 100) / 100,
     });
   }
 

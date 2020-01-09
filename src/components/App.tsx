@@ -38,7 +38,7 @@ const useFetch = (url: string): any => {
 export const App: React.FC = () => {
   const [inputValue, setInputValue] = useState('');
 
-  const URL = `https://api.github.com/users/KoutaKawase/repos`;
+  const URL = `https://api.github.com/users/matz/repos`;
   const resultJson = useFetch(URL);
   const usedLanguages = makeLanguagesArrayFromJson(resultJson);
 
