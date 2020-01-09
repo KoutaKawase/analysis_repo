@@ -37,14 +37,15 @@ const useFetch = (url: string): any => {
 
 export const App: React.FC = () => {
   const [userID, setInputValue] = useState('');
+  const [requestURL, setRequestURL] = useState('https://api.github.com/users/matz/repos');
 
-  const URL = `https://api.github.com/users/matz/repos`;
-  const resultJson = useFetch(URL);
+  const resultJson = useFetch(requestURL);
   const usedLanguages = makeLanguagesArrayFromJson(resultJson);
 
   const handleClick = (e: ClickEvent): void => {
     e.preventDefault();
     const URL = `https://api.github.com/users/${userID}/repos`;
+    setRequestURL(URL);
     console.log(URL);
   };
 
