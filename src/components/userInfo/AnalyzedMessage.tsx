@@ -21,17 +21,15 @@ const calculateLanguageUseRate = (langs: string[]): UseRate[] => {
     useRate.push({
       id: uuid.v4(),
       language: lang,
-      rate: rate,
+      rate: Math.round(rate),
     });
   }
 
   //languageが重複したオブジェクトを除いたuseLate配列にする
   //マジで理解できん
   const uniqueUseRate: UseRate[] = useRate.filter((data1, index, self) => {
-    console.log(`data1: ${data1.language}`);
     return (
       self.findIndex(data2 => {
-        console.log(`data2: ${data2.language}`);
         return data1.language === data2.language;
       }) === index
     );
@@ -43,7 +41,12 @@ const calculateLanguageUseRate = (langs: string[]): UseRate[] => {
 export const AnalyzedMessage: React.FC<Props> = (props: Props) => {
   const langs = props.languages;
   const useRate = calculateLanguageUseRate(langs);
-  console.log(useRate);
 
-  return <div>{'This is AnalyzedMessage!'}</div>;
+  return (
+    <div>
+      {useRate.map(data => {
+        return <p key={data.id}>{`${data.language}: ${data.rate}%`}</p>;
+      })}
+    </div>
+  );
 };
