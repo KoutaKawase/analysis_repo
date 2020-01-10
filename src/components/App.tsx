@@ -45,7 +45,7 @@ const useFetch = (url: string): any => {
 };
 
 export const App: React.FC = () => {
-  const [userID, setInputValue] = useState('');
+  const [userID, setUserID] = useState('');
   const [requestReposURL, setRequestReposURL] = useState('https://api.github.com/users/matz/repos');
 
   const resultJson = useFetch(requestReposURL);
@@ -59,7 +59,7 @@ export const App: React.FC = () => {
   };
 
   const handleChange = (e: ChangeEvent): void => {
-    setInputValue(e.target.value);
+    setUserID(e.target.value);
     return;
   };
 
