@@ -6,8 +6,8 @@ interface Props {
   userID: string;
 }
 
+//TODO props消すかも
 export const UserInfo: React.FC<Props> = (props: Props) => {
-  console.log(props.userID);
   return (
     <div>
       <Avatar />
