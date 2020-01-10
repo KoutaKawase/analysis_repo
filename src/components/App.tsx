@@ -5,6 +5,11 @@ import { UserInfoContainer } from './userInfo/UserInfoContainer';
 type ClickEvent = React.MouseEvent<HTMLButtonElement>;
 type ChangeEvent = React.ChangeEvent<HTMLInputElement>;
 
+interface UserInfo {
+  avatarURL: string;
+  userName: string;
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const makeLanguagesArrayFromJson = (json: any): string[] => {
   const usedLanguages: string[] = [];
@@ -42,13 +47,22 @@ const useFetch = (url: string): any => {
   return data;
 };
 
+const getUserInfoFrom = (json: any): UserInfo => {
+  return { avatarURL: '', userName: '' };
+};
+
 export const App: React.FC = () => {
   const [userID, setUserID] = useState('');
   const [requestReposURL, setRequestReposURL] = useState('https://api.github.com/users/matz/repos');
-  const [userInfoURL, setUserInfoURL] = useState('');
+  const [userInfoURL, setUserInfoURL] = useState('https://api.github.com/users/matz');
 
   const reposJson = useFetch(requestReposURL);
   const usedLanguages: string[] = makeLanguagesArrayFromJson(reposJson);
+
+  const userInfoJson = useFetch(userInfoURL);
+  const userInfo: UserInfo = getUserInfoFrom(userInfoJson);
+
+  console.log(userInfo);
 
   const handleClick = (e: ClickEvent): void => {
     e.preventDefault();
@@ -69,6 +83,7 @@ export const App: React.FC = () => {
       <h1>Hello World</h1>
       <SearchContainer onClick={handleClick} onChange={handleChange} inputValue={userID} />
       <UserInfoContainer languages={usedLanguages} userID={userID} />
+      <p>{JSON.stringify(userInfoJson)}</p>
     </div>
   );
 };
