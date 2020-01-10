@@ -1,11 +1,11 @@
 import React from 'react';
-import { Icon } from './Icon';
+import { Avatar } from './Avatar';
 import { UserName } from './UserName';
 
 export const UserInfo: React.FC = () => {
   return (
     <div>
-      <Icon />
+      <Avatar />
       <UserName />
     </div>
   );
