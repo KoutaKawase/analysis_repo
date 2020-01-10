@@ -47,8 +47,13 @@ const useFetch = (url: string): any => {
   return data;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const getUserInfoFrom = (json: any): UserInfo => {
-  return { avatarURL: '', userName: '' };
+  if (!json) {
+    return { avatarURL: '', userName: '' };
+  }
+
+  return { avatarURL: json.login, userName: json.avatar_url };
 };
 
 export const App: React.FC = () => {
