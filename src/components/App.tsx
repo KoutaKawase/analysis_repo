@@ -5,6 +5,11 @@ import { UserInfoContainer } from './userInfo/UserInfoContainer';
 type ClickEvent = React.MouseEvent<HTMLButtonElement>;
 type ChangeEvent = React.ChangeEvent<HTMLInputElement>;
 
+interface UserInfo {
+  avatarURL: string;
+  userName: string;
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const makeLanguagesArrayFromJson = (json: any): string[] => {
   const usedLanguages: string[] = [];
@@ -16,14 +21,12 @@ const makeLanguagesArrayFromJson = (json: any): string[] => {
 
   //無効なユーザーIDなら空配列を返すだけにしてエラーが出ないようにする
   if ('message' in json && json.message === 'Not Found') {
-    return ['Not Found'];
+    return [];
   }
 
   for (const repo of json) {
     usedLanguages.push(repo.language);
   }
-
-  console.log(usedLanguages);
 
   return usedLanguages;
 };
@@ -44,22 +47,37 @@ const useFetch = (url: string): any => {
   return data;
 };
 
-export const App: React.FC = () => {
-  const [userID, setInputValue] = useState('');
-  const [requestURL, setRequestURL] = useState('https://api.github.com/users/matz/repos');
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const getUserInfoFrom = (json: any): UserInfo => {
+  if (!json) {
+    return { avatarURL: '', userName: '' };
+  }
 
-  const resultJson = useFetch(requestURL);
-  const usedLanguages = makeLanguagesArrayFromJson(resultJson);
-  console.log(usedLanguages);
+  return { avatarURL: json.avatar_url, userName: json.login };
+};
+
+export const App: React.FC = () => {
+  const [userID, setUserID] = useState('');
+  const [requestReposURL, setRequestReposURL] = useState('https://api.github.com/users/matz/repos');
+  const [userInfoURL, setUserInfoURL] = useState('https://api.github.com/users/matz');
+
+  const reposJson = useFetch(requestReposURL);
+  const usedLanguages: string[] = makeLanguagesArrayFromJson(reposJson);
+
+  const userInfoJson = useFetch(userInfoURL);
+  const userInfo: UserInfo = getUserInfoFrom(userInfoJson);
 
   const handleClick = (e: ClickEvent): void => {
     e.preventDefault();
-    const URL = `https://api.github.com/users/${userID}/repos`;
-    setRequestURL(URL);
+    const reposURL = `https://api.github.com/users/${userID}/repos`;
+    setRequestReposURL(reposURL);
+
+    const userInfoURL = `https://api.github.com/users/${userID}`;
+    setUserInfoURL(userInfoURL);
   };
 
   const handleChange = (e: ChangeEvent): void => {
-    setInputValue(e.target.value);
+    setUserID(e.target.value);
     return;
   };
 
@@ -67,7 +85,7 @@ export const App: React.FC = () => {
     <div>
       <h1>Hello World</h1>
       <SearchContainer onClick={handleClick} onChange={handleChange} inputValue={userID} />
-      <UserInfoContainer languages={usedLanguages} />
+      <UserInfoContainer languages={usedLanguages} userInfo={userInfo} />
     </div>
   );
 };

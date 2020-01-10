@@ -1,12 +1,17 @@
 import React from 'react';
-import { Icon } from './Icon';
+import { Avatar } from './Avatar';
 import { UserName } from './UserName';
 
-export const UserInfo: React.FC = () => {
+interface Props {
+  userInfo: { avatarURL: string; userName: string };
+}
+
+//TODO props消すかも
+export const UserInfo: React.FC<Props> = (props: Props) => {
   return (
     <div>
-      <Icon />
-      <UserName />
+      <Avatar avatarURL={props.userInfo.avatarURL} />
+      <UserName name={props.userInfo.userName} />
     </div>
   );
 };

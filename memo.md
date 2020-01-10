@@ -27,3 +27,5 @@ const uniqueUseRate: UseRate[] = useRate.filter((data1, index, self) => {
 ```
 
 これマジで理解できん　コピペで済ましたくないので理解したい
+
+https://api.github.com/users/

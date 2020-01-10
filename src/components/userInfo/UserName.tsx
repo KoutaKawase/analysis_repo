@@ -1,5 +1,8 @@
 import React from 'react';
 
-export const UserName: React.FC = () => {
-  return <p color="red">{'KoutaKawase'}</p>;
+interface Props {
+  name: string;
+}
+export const UserName: React.FC<Props> = (props: Props) => {
+  return <p color="red">{props.name}</p>;
 };
