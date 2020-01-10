@@ -48,7 +48,7 @@ export const App: React.FC = () => {
   const [userInfoURL, setUserInfoURL] = useState('');
 
   const reposJson = useFetch(requestReposURL);
-  const usedLanguages = makeLanguagesArrayFromJson(reposJson);
+  const usedLanguages: string[] = makeLanguagesArrayFromJson(reposJson);
 
   const handleClick = (e: ClickEvent): void => {
     e.preventDefault();
