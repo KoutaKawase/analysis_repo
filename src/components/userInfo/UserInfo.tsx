@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar } from './Avatar';
+import { AvatarArea } from './AvatarArea';
 import { UserName } from './UserName';
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
 export const UserInfo: React.FC<Props> = (props: Props) => {
   return (
     <div>
-      <Avatar avatarURL={props.userInfo.avatarURL} />
+      <AvatarArea avatarURL={props.userInfo.avatarURL} />
       <UserName name={props.userInfo.userName} />
     </div>
   );

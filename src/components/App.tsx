@@ -53,6 +53,10 @@ const getUserInfoFrom = (json: any): UserInfo => {
     return { avatarURL: '', userName: '' };
   }
 
+  if ('message' in json && json.message === 'Not Found') {
+    return { avatarURL: '', userName: '' };
+  }
+
   return { avatarURL: json.avatar_url, userName: json.login };
 };
 
