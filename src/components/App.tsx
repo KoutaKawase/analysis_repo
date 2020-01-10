@@ -47,8 +47,8 @@ export const App: React.FC = () => {
   const [requestReposURL, setRequestReposURL] = useState('https://api.github.com/users/matz/repos');
   const [userInfoURL, setUserInfoURL] = useState('');
 
-  const resultJson = useFetch(requestReposURL);
-  const usedLanguages = makeLanguagesArrayFromJson(resultJson);
+  const reposJson = useFetch(requestReposURL);
+  const usedLanguages = makeLanguagesArrayFromJson(reposJson);
 
   const handleClick = (e: ClickEvent): void => {
     e.preventDefault();
@@ -56,6 +56,7 @@ export const App: React.FC = () => {
     setRequestReposURL(reposURL);
 
     const userInfoURL = `https://api.github.com/users/${userID}`;
+    setUserInfoURL(userInfoURL);
   };
 
   const handleChange = (e: ChangeEvent): void => {
