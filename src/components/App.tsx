@@ -23,8 +23,6 @@ const makeLanguagesArrayFromJson = (json: any): string[] => {
     usedLanguages.push(repo.language);
   }
 
-  console.log(usedLanguages);
-
   return usedLanguages;
 };
 //TODO: なんかdataって名前が曖昧すぎてもう少しわかりやすくする
@@ -50,7 +48,6 @@ export const App: React.FC = () => {
 
   const resultJson = useFetch(requestReposURL);
   const usedLanguages = makeLanguagesArrayFromJson(resultJson);
-  console.log(usedLanguages);
 
   const handleClick = (e: ClickEvent): void => {
     e.preventDefault();
@@ -67,7 +64,7 @@ export const App: React.FC = () => {
     <div>
       <h1>Hello World</h1>
       <SearchContainer onClick={handleClick} onChange={handleChange} inputValue={userID} />
-      <UserInfoContainer languages={usedLanguages} />
+      <UserInfoContainer languages={usedLanguages} userID={userID} />
     </div>
   );
 };
