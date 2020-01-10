@@ -53,7 +53,7 @@ const getUserInfoFrom = (json: any): UserInfo => {
     return { avatarURL: '', userName: '' };
   }
 
-  return { avatarURL: json.login, userName: json.avatar_url };
+  return { avatarURL: json.avatar_url, userName: json.login };
 };
 
 export const App: React.FC = () => {
@@ -66,8 +66,6 @@ export const App: React.FC = () => {
 
   const userInfoJson = useFetch(userInfoURL);
   const userInfo: UserInfo = getUserInfoFrom(userInfoJson);
-
-  console.log(userInfo);
 
   const handleClick = (e: ClickEvent): void => {
     e.preventDefault();
@@ -87,8 +85,7 @@ export const App: React.FC = () => {
     <div>
       <h1>Hello World</h1>
       <SearchContainer onClick={handleClick} onChange={handleChange} inputValue={userID} />
-      <UserInfoContainer languages={usedLanguages} userID={userID} />
-      <p>{JSON.stringify(userInfoJson)}</p>
+      <UserInfoContainer languages={usedLanguages} userInfo={userInfo} />
     </div>
   );
 };

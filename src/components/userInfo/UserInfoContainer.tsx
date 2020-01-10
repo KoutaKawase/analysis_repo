@@ -4,14 +4,14 @@ import { ChartArea } from './ChartArea';
 
 interface Props {
   languages: string[];
-  userID: string;
+  userInfo: { avatarURL: string; userName: string };
 }
 
 export const UserInfoContainer: React.FC<Props> = (props: Props) => {
   return (
     <div>
       <ChartArea languages={props.languages} />
-      <UserInfo userID={props.userID} />
+      <UserInfo userInfo={props.userInfo} />
     </div>
   );
 };
