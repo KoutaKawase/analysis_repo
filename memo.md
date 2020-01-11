@@ -16,16 +16,19 @@ https://api.github.com/users/KoutaKawase/repos
 
 ```tsx
 const uniqueUseRate: UseRate[] = useRate.filter((data1, index, self) => {
-  console.log(`data1: ${data1.language}`);
-  return (
     self.findIndex(data2 => {
-      console.log(`data2: ${data2.language}`);
       return data1.language === data2.language;
     }) === index
   );
 });
 ```
 
+findIndex は true になった要素のインデックスを返す。これの findIndex 内は filter の現在の要素の最初に出てくる位置のインデックスを返す。その
+インデックスと現在のインデックスが等しかったらそれは初めてきたということなんで true として配列に入れている。
+
 これマジで理解できん　コピペで済ましたくないので理解したい
 
 https://api.github.com/users/
+
+ダークモード実装したい
+https://www.youtube.com/watch?v=FjDo1mbkNtw
