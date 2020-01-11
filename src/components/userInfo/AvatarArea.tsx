@@ -6,7 +6,6 @@ interface Props {
 }
 
 export const AvatarArea: React.FC<Props> = (props: Props) => {
-  console.log(props.avatarURL);
   const imageExists = props.avatarURL !== '';
 
   return <div>{imageExists ? <Avatar image={props.avatarURL} /> : <p>{'User Not Found!'}</p>}</div>;

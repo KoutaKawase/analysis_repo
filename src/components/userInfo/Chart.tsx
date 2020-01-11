@@ -1,12 +1,18 @@
 import React from 'react';
-import { PieChart, Pie, Sector } from 'recharts';
 
 interface Props {
-  languages: string[];
+  useRate: UseRate[];
+}
+
+interface UseRate {
+  id: string;
+  language: string;
+  rate: number;
 }
 
 export const Chart: React.FC<Props> = (props: Props) => {
-  const languages = props.languages;
-  console.log(languages);
+  const useRate = props.useRate;
+
+  console.log(useRate);
   return <div>{'This is Chart'}</div>;
 };
