@@ -10,7 +10,7 @@ export const ChartArea: React.FC<Props> = (props: Props) => {
   return (
     <div>
       {'This is chartarea'}
-      <Chart />
+      <Chart languages={props.languages} />
       <AnalyzedMessage languages={props.languages} />
     </div>
   );
