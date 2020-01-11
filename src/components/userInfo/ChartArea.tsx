@@ -44,10 +44,10 @@ export const ChartArea: React.FC<Props> = (props: Props) => {
   const langs = props.languages;
   const useRate = calculateLanguageUseRate(langs);
 
+  //無効なユーザー名ならChartは表示させない
   return (
     <div>
-      {'This is chartarea'}
-      <Chart useRate={useRate} />
+      {useRate.length !== 0 ? <Chart useRate={useRate} /> : ''}
       <AnalyzedMessage useRate={useRate} />
     </div>
   );
