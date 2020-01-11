@@ -18,15 +18,15 @@ export const Chart: React.FC<Props> = (props: Props) => {
   return (
     <PieChart width={400} height={400}>
       <Pie
+        dataKey={'rate'}
+        isAnimationActive={true}
         data={useRate}
         cx={'50%'}
         cy={'50%'}
         nameKey={'language'}
-        dataKey={'rate'}
-        innerRadius={90}
-        outerRadius={140}
-        fill="#82ca9d"
-        label={true}
+        outerRadius={80}
+        fill="#83ca9d"
+        label
       />
       <Tooltip />
     </PieChart>
