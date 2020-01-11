@@ -42,6 +42,8 @@ export const AnalyzedMessage: React.FC<Props> = (props: Props) => {
   const langs = props.languages;
   const useRate = calculateLanguageUseRate(langs);
 
+  console.log(useRate);
+
   return (
     <div>
       {useRate.map(data => {
