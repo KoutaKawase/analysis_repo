@@ -1,5 +1,5 @@
 import React from 'react';
-import { PieChart, Pie } from 'recharts';
+import { PieChart, Pie, Tooltip } from 'recharts';
 
 interface Props {
   useRate: UseRate[];
@@ -14,6 +14,7 @@ interface UseRate {
 export const Chart: React.FC<Props> = (props: Props) => {
   const useRate = props.useRate;
   console.log(useRate);
+
   return (
     <PieChart width={400} height={400}>
       <Pie
@@ -22,11 +23,12 @@ export const Chart: React.FC<Props> = (props: Props) => {
         cy={'50%'}
         nameKey={'language'}
         dataKey={'rate'}
-        innerRadius={120}
+        innerRadius={90}
         outerRadius={140}
         fill="#82ca9d"
-        label
+        label={true}
       />
+      <Tooltip />
     </PieChart>
   );
 };
