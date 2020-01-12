@@ -42,7 +42,6 @@ const calculateLanguageUseRate = (langs: string[]): UseRate[] => {
 
 export const ChartArea: React.FC<Props> = (props: Props) => {
   const langs = props.languages;
-  console.log(langs);
   const useRate = calculateLanguageUseRate(langs);
 
   //無効なユーザー名ならChartは表示させない
