@@ -22,7 +22,7 @@ const calculateLanguageUseRate = (langs: string[]): UseRate[] => {
     //TODO　重複をけす
     useRate.push({
       id: uuid.v4(),
-      language: lang,
+      language: lang !== null ? lang : 'その他',
       rate: Math.floor(rate * 100) / 100,
     });
   }
@@ -42,6 +42,7 @@ const calculateLanguageUseRate = (langs: string[]): UseRate[] => {
 
 export const ChartArea: React.FC<Props> = (props: Props) => {
   const langs = props.languages;
+  console.log(langs);
   const useRate = calculateLanguageUseRate(langs);
 
   //無効なユーザー名ならChartは表示させない

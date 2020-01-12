@@ -13,7 +13,6 @@ interface UseRate {
 
 export const Chart: React.FC<Props> = (props: Props) => {
   const useRate = props.useRate;
-  console.log(useRate);
 
   return (
     <PieChart width={400} height={400}>
