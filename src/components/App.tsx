@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { SearchContainer } from './search/SearchContainer';
 import { UserInfoContainer } from './userInfo/UserInfoContainer';
+import './App.css';
 
 type ClickEvent = React.MouseEvent<HTMLButtonElement>;
 type ChangeEvent = React.ChangeEvent<HTMLInputElement>;
@@ -86,8 +87,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div>
-      <h1>Hello World</h1>
+    <div className={'container'}>
       <SearchContainer onClick={handleClick} onChange={handleChange} inputValue={userID} />
       <UserInfoContainer languages={usedLanguages} userInfo={userInfo} />
     </div>
