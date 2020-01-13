@@ -1,4 +1,5 @@
 import React from 'react';
+import './searchButton.css';
 
 interface Props {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
