@@ -14,7 +14,8 @@ export const SearchInput: React.FC<Props> = (props: Props) => {
 
   return (
     <div>
-      <input type="text" value={value} placeholder="Search from USER ID..." onChange={onChange} />
+      <label htmlFor={'user-id'}></label>
+      <input type="text" value={value} placeholder="Search from USER ID..." onChange={onChange} id={'user-id'} />
     </div>
   );
 };
