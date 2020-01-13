@@ -1,6 +1,7 @@
 import React from 'react';
 import { SearchInput } from './SearchInput';
 import { SearchButton } from './SearchButton';
+import './search.css';
 
 interface Props {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
@@ -18,7 +19,7 @@ export const SearchContainer: React.FC<Props> = (props: Props) => {
   };
 
   return (
-    <form>
+    <form className="search-id-form">
       <SearchInput value={props.inputValue} onChange={onChange} />
       <SearchButton onClick={onClick} />
     </form>
