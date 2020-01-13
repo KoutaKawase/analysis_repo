@@ -11,7 +11,7 @@ export const SearchButton: React.FC<Props> = (props: Props) => {
 
   return (
     <div>
-      <button type="submit" onClick={onClick}>
+      <button type="submit" className="search-button" onClick={onClick}>
         Search
       </button>
     </div>

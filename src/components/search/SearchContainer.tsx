@@ -1,6 +1,7 @@
 import React from 'react';
 import { SearchInput } from './SearchInput';
 import { SearchButton } from './SearchButton';
+import './search.css';
 
 interface Props {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
