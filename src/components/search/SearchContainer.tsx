@@ -19,7 +19,7 @@ export const SearchContainer: React.FC<Props> = (props: Props) => {
   };
 
   return (
-    <form>
+    <form className="search-id-form">
       <SearchInput value={props.inputValue} onChange={onChange} />
       <SearchButton onClick={onClick} />
     </form>

@@ -1,0 +1,10 @@
+.search-id-form {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 80px;
+}
+
+.search-id-form input {
+  width: 80%;
+}
