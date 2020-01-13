@@ -6,5 +6,13 @@
 }
 
 .search-id-form input {
-  width: 80%;
+  border: 0.1em solid rgba(22, 42, 44, 0.5);
+  padding-left: 0.5em;
+  width: 85%;
+  border-radius: 4px;
+  box-shadow: none;
+}
+
+.search-id-form input:focus {
+  outline: none;
 }
