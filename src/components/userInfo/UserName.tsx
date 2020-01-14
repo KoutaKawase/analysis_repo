@@ -1,5 +1,4 @@
 import React from 'react';
-import './userName.css';
 
 interface Props {
   name: string;
@@ -7,7 +6,7 @@ interface Props {
 export const UserName: React.FC<Props> = (props: Props) => {
   return (
     <p>
-      USER ID: <span className="user-name">{props.name}</span>
+      USER ID: <span className="info-value">{props.name}</span>
     </p>
   );
 };

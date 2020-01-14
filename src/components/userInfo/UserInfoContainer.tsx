@@ -4,7 +4,7 @@ import { ChartArea } from './ChartArea';
 
 interface Props {
   languages: string[];
-  userInfo: { avatarURL: string; userName: string };
+  userInfo: { avatarURL: string; userName: string; createdAt: string; updatedAt: string };
 }
 
 export const UserInfoContainer: React.FC<Props> = (props: Props) => {
