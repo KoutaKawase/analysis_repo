@@ -44,7 +44,7 @@ export const AnalyzedMessage: React.FC<Props> = (props: Props) => {
   return (
     <ul className="analyzed-messages">
       {useRate.map(data => {
-        return <li key={data.id}>{`${data.language}: ${data.rate}%`}</li>;
+        return <li key={data.id} className="list-message">{`${data.language}: ${data.rate}%`}</li>;
       })}
     </ul>
   );
