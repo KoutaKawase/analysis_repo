@@ -1,4 +1,5 @@
 import React from 'react';
+import './analyzed.css';
 
 interface Props {
   useRate: UseRate[];
@@ -41,10 +42,10 @@ export const AnalyzedMessage: React.FC<Props> = (props: Props) => {
   const useRate = props.useRate;
 
   return (
-    <div>
+    <ul className="analyzed-messages">
       {useRate.map(data => {
-        return <p key={data.id}>{`${data.language}: ${data.rate}%`}</p>;
+        return <li key={data.id} className="list-message">{`${data.language}: ${data.rate}%`}</li>;
       })}
-    </div>
+    </ul>
   );
 };
