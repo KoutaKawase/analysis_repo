@@ -73,10 +73,13 @@ export const App: React.FC = () => {
 
   const userInfoJson = useFetch(userInfoURL);
   const userInfo: UserInfo = getUserInfoFrom(userInfoJson);
-  console.log(userInfo);
 
   const handleClick = (e: ClickEvent): void => {
     e.preventDefault();
+
+    if (userID === '') {
+      return;
+    }
     const reposURL = `https://api.github.com/users/${userID}/repos`;
     setRequestReposURL(reposURL);
 
