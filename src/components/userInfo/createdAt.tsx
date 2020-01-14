@@ -5,6 +5,6 @@ interface Props {
 }
 
 export const CreatedAt: FC<Props> = (props: Props) => {
-  const createdAt = props.date;
-  return <p>アカウント作成日: {createdAt}</p>;
+  const date = props.date;
+  return <p>アカウント作成日: {date}</p>;
 };
