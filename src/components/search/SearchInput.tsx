@@ -12,5 +12,5 @@ export const SearchInput: React.FC<Props> = (props: Props) => {
     props.onChange(e);
   };
 
-  return <input type="text" value={value} placeholder="Search from USER ID..." onChange={onChange} />;
+  return <input type="text" value={value} placeholder="Search from GitHub ID..." onChange={onChange} />;
 };
