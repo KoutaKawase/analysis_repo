@@ -1,7 +1,8 @@
 import React from 'react';
 import { UserName } from './UserName';
-import { CreatedAt } from './createdAt';
+import { CreatedAt } from './CreatedAt';
 import { UpdatedAt } from './UpdatedAt';
+import './userInfoMessages.css';
 
 interface Props {
   userInfo: { avatarURL: string; userName: string; createdAt: string; updatedAt: string };
@@ -24,7 +25,7 @@ export const UserInfoMessages: React.FC<Props> = (props: Props) => {
   const updatedAt = convertYYYYMMDDfrom(timeStampOfUpdatedAt);
 
   return (
-    <ul>
+    <ul className="info-messages">
       <li>
         <UserName name={userName} />
       </li>
