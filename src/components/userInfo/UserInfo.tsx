@@ -4,7 +4,7 @@ import { UserName } from './UserName';
 import './userInfo.css';
 
 interface Props {
-  userInfo: { avatarURL: string; userName: string };
+  userInfo: { avatarURL: string; userName: string; createdAt: string; updatedAt: string };
 }
 
 //TODO props消すかも
