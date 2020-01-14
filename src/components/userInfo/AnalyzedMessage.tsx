@@ -41,10 +41,10 @@ export const AnalyzedMessage: React.FC<Props> = (props: Props) => {
   const useRate = props.useRate;
 
   return (
-    <div>
+    <ul>
       {useRate.map(data => {
-        return <p key={data.id}>{`${data.language}: ${data.rate}%`}</p>;
+        return <li key={data.id}>{`${data.language}: ${data.rate}%`}</li>;
       })}
-    </div>
+    </ul>
   );
 };
