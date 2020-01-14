@@ -1,9 +1,10 @@
 import React from 'react';
+import './avatar.css';
 
 interface Props {
   image: string;
 }
 
 export const Avatar: React.FC<Props> = (props: Props) => {
-  return <img src={props.image} alt="user avatar" width={'120px'} height={'120px'} />;
+  return <img className="avatar" src={props.image} alt="user avatar" width={'150px'} height={'150px'} />;
 };

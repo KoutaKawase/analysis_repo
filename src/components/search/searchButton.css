@@ -1,0 +1,23 @@
+.search-button {
+  display: inline-block;
+  max-width: 180px;
+  text-align: left;
+  border: 2px solid rgba(22, 42, 44, 0.5);
+  font-size: 14px;
+  color: rgba(22, 42, 44, 0.5);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 3px 16px;
+  border-radius: 4px;
+  transition: 0.4s;
+}
+
+.search-button:hover {
+  background-color: #70706e;
+  border-color: rgba(22, 42, 44, 0.5);
+  color: #fff;
+}
+
+.search-button:focus {
+  outline: none;
+}

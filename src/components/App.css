@@ -1,4 +1,6 @@
 .container {
   width: 50%;
   margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  color: rgba(26, 15, 15, 0.418);
 }
