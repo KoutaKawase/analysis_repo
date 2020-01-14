@@ -2,6 +2,7 @@ import React from 'react';
 import { Chart } from './Chart';
 import { AnalyzedMessage } from './AnalyzedMessage';
 import uuid from 'uuid';
+import './chartArea.css';
 
 interface Props {
   languages: string[];
@@ -46,7 +47,7 @@ export const ChartArea: React.FC<Props> = (props: Props) => {
 
   //無効なユーザー名ならChartは表示させない
   return (
-    <div>
+    <div className="chart-area">
       {useRate.length !== 0 ? <Chart useRate={useRate} /> : ''}
       <AnalyzedMessage useRate={useRate} />
     </div>

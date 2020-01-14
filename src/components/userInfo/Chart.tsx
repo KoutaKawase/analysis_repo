@@ -15,7 +15,7 @@ export const Chart: React.FC<Props> = (props: Props) => {
   const useRate = props.useRate;
 
   return (
-    <PieChart width={400} height={400}>
+    <PieChart width={320} height={320}>
       <Pie
         dataKey={'rate'}
         isAnimationActive={true}
