@@ -9,6 +9,8 @@ type ChangeEvent = React.ChangeEvent<HTMLInputElement>;
 interface UserInfo {
   avatarURL: string;
   userName: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -51,14 +53,14 @@ const useFetch = (url: string): any => {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const getUserInfoFrom = (json: any): UserInfo => {
   if (!json) {
-    return { avatarURL: '', userName: '' };
+    return { avatarURL: '', userName: '', createdAt: '', updatedAt: '' };
   }
 
   if ('message' in json && json.message === 'Not Found') {
-    return { avatarURL: '', userName: '' };
+    return { avatarURL: '', userName: '', createdAt: '', updatedAt: '' };
   }
 
-  return { avatarURL: json.avatar_url, userName: json.login };
+  return { avatarURL: json.avatar_url, userName: json.login, createdAt: json.created_at, updatedAt: json.updated_at };
 };
 
 export const App: React.FC = () => {
@@ -71,6 +73,7 @@ export const App: React.FC = () => {
 
   const userInfoJson = useFetch(userInfoURL);
   const userInfo: UserInfo = getUserInfoFrom(userInfoJson);
+  console.log(userInfo);
 
   const handleClick = (e: ClickEvent): void => {
     e.preventDefault();

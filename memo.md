@@ -30,5 +30,4 @@ findIndex は true になった要素のインデックスを返す。これの 
 
 https://api.github.com/users/
 
-ダークモード実装したい
-https://www.youtube.com/watch?v=FjDo1mbkNtw
+TODO: アカウント作成日と最終更新日を追加
