@@ -22,3 +22,6 @@ MIT
 ## 🤔 Author
 
 <a href="https://twitter.com/omochizou">Twitter</a>
+
+## 参考
+<a href="https://qiita.com/aocattleya/items/5f836e9c65ba3eb3af03">READMEの書き方</a>
