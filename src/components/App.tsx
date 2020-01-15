@@ -94,6 +94,7 @@ export const App: React.FC = () => {
 
   return (
     <div className={'container'}>
+      <h1 className="header-text">GitHub IDから言語使用率を調べます</h1>
       <SearchContainer onClick={handleClick} onChange={handleChange} inputValue={userID} />
       <UserInfoContainer languages={usedLanguages} userInfo={userInfo} />
     </div>
